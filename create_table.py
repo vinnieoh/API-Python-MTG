@@ -1,10 +1,10 @@
-from config.config import settings
+from config.config_api import settings
 from config.database import engine
 
 import asyncio
 
 
-async def create_tables():
+async def create_tables() -> None:
     import models.__all_models
 
     async with engine.begin() as conn:

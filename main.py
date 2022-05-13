@@ -1,15 +1,15 @@
 import uvicorn
 from fastapi import FastAPI
 
-from config.config import settings
+from config.config_api import settings
 from routes.api_config import api_router
 
 
 app = FastAPI()
 
-app = app.include_router(api_router, prefix=settings.API_V_STR)
+app.include_router(api_router, prefix=settings.API_V_STR)
 
-# prefix => /api/v1/
+# prefix => http://127.0.0.1:8000/api/v1/
 
 
 

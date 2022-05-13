@@ -8,11 +8,10 @@ from typing import List
 
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.future import select
-from config.database import Session
 
-from models.models import ListaCartasModel
+from models.model import ListaCartasModel
 from schemas.lista_cartas_schemas import ListaCartasSchemas
-from config.dependencies import get_session
+from config.deps import get_session
 
 
 router = APIRouter()
@@ -48,7 +47,7 @@ async def get_lista_cartas(listaCartas_id: int, db: AsyncSession = Depends(get_s
         if lista_cartas:
             return lista_cartas
         else:
-            raise HTTPException(status_code=status.HTTP_404_NOT_FOUND)
+            raise HTTPException(detail='Curso não encontrado.',status_code=status.HTTP_404_NOT_FOUND)
 
 
 @router.put('/{listaCartas_id}', response_model=ListaCartasSchemas, status_code=status.HTTP_202_ACCEPTED)
@@ -65,7 +64,7 @@ async def put_lista_cartas(listaCartas_id: int, lista_cartas: ListaCartasSchemas
 
             return lista_cartas_up
         else:
-            raise HTTPException(status_code=status.HTTP_404_NOT_FOUND)
+            raise HTTPException(detail='Curso não encontrado.',status_code=status.HTTP_404_NOT_FOUND)
 
 
 
@@ -82,4 +81,4 @@ async def delete_lista_cartas(listaCartas_id: int, db: AsyncSession = Depends(ge
 
             return Response(status_code=status.HTTP_204_NO_CONTENT)
         else:
-            raise HTTPException(status_code=status.HTTP_404_NOT_FOUND)
+            raise HTTPException(detail='Curso não encontrado.',status_code=status.HTTP_404_NOT_FOUND)

@@ -1,7 +1,7 @@
-from sqlalchemy import Column, ForeignKey, Integer, String, column, DECIMAL, Boolean
+from sqlalchemy import Column, ForeignKey, Integer, String, DECIMAL, Boolean
 from sqlalchemy.orm import relationship
 
-from config.config import settings
+from config.config_api import settings
 
 
 
