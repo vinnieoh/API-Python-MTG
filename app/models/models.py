@@ -1,25 +1,26 @@
-from sqlalchemy import Column, ForeignKey, Integer, String, column, Relationship, DECIMAL, Boolean
+from sqlalchemy import Column, ForeignKey, Integer, String, column, DECIMAL, Boolean
+from sqlalchemy.orm import relationship
 
 from config.config import settings
 
 
 
 class ListaCartasModel(settings.DBBaseModel):
-    __tabelename__ = 'listaCartas'
+    __tablename__ = 'lista_cartas'
 
     id: int = Column(Integer, primary_key=True, autoincrement=True)
     nome: str = Column(String(100))
-    cartas: any = Relationship('CartaModel', backref='ListaCartasModel')
+    cartas: any = relationship('CartaModel', backref='ListaCartasModel')
 
 
 class CartaModel(settings.DBBaseModel):
-    __tabelename__ = 'cartas'
+    __tablename__ = 'cartas'
 
     id: int = Column(Integer, primary_key=True, autoincrement=True)
     nome: str = Column(String(100))
     edicao: str = Column(String(100))
     idioma: str = Column(String(50))
-    foil: bool = column(Boolean(True))
-    preco: DECIMAL = column(DECIMAL)
-    cont_cartas: int = column(Integer)
-    listaCartaId: int = column(Integer, ForeignKey('ListaCartasModel.id'))
+    foil: bool = Column(Boolean)
+    preco: DECIMAL = Column(DECIMAL)
+    cont_cartas: int = Column(Integer)
+    listaCartaId: int = Column(Integer, ForeignKey(ListaCartasModel.id), primary_key=True)

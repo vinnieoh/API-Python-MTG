@@ -13,7 +13,7 @@ class CartaSchemas(SCBaseModel):
     foil: bool
     preco: Decimal
     cont_cartas: int
-    listaCartaId: int
+    listaCartaId: Optional[int]
 
     class Config:
         orm_mode = True
