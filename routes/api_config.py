@@ -1,6 +1,8 @@
 from fastapi import APIRouter
 
-from .endpoits import lista_cartas_route, cartas_route
+from . import lista_cartas_route
+
+from . import cartas_route
 
 
 api_router = APIRouter()
