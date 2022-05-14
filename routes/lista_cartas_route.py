@@ -11,7 +11,7 @@ from sqlalchemy.future import select
 
 from models.model import ListaCartasModel
 from schemas.lista_cartas_schemas import ListaCartasSchemas
-from config.deps import get_session
+from config.dependencies import get_session
 
 
 router = APIRouter()
