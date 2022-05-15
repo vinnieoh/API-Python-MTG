@@ -1,8 +1,9 @@
+import imp
 from fastapi import APIRouter
 
-from . import lista_cartas_route
+from routes.api_endpoint_v1 import lista_cartas_route
 
-from . import cartas_route
+from routes.api_endpoint_v1 import cartas_route
 
 
 api_router = APIRouter()
