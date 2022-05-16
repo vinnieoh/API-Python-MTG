@@ -7,8 +7,7 @@ class SettingsApi(BaseSettings):
     
 
     API_V_STR: str = '/api/v1'
-    #DB_URL: str = "postgresql+asyncpg://postgres:root12345@localhost:5432/api-mtg"
-    DB_URL: str = "postgresql+asyncpg://nsjyfgacnyktzy:3c9fc73736724e6ca701a3b4cb09ce15c9a8208a33c14d0a5c0fe35da919bdf6@ec2-3-229-11-55.compute-1.amazonaws.com:5432/d66obtknp48ko2"
+    DB_URL: str = "postgresql+asyncpg://ytffukfbzzlhko:d85f26510d9211ce7301345dc70c2966901fbc92520720c1849cc8bf93ba6f3b@ec2-54-172-175-251.compute-1.amazonaws.com:5432/d7fm7em29e7c6m"
     DBBaseModel = declarative_base()
 
 
