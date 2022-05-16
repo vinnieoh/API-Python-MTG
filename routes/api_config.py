@@ -1,4 +1,3 @@
-import imp
 from fastapi import APIRouter
 
 from routes.api_endpoint_v1 import lista_cartas_route
